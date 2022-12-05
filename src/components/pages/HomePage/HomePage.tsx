@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-
 import { Heading1 } from "../../atoms/Heading/Heading";
+import { Link } from "../../atoms/Link/Link";
 import { Container } from "../../layout/Container/Container";
 
 export default function OverviewPage() {
