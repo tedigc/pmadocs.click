@@ -8,7 +8,7 @@ export default function OverviewPage() {
       <Heading1>Home</Heading1>
       <ul>
         <li>
-          <Link to="/overview">Introduction</Link>
+          <Link to="/introduction">Introduction</Link>
         </li>
         <li>
           <Link to="/overview">Overview</Link>

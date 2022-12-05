@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { DefaultLayout } from "./components/layout/DefaultLayout/DefaultLayout";
 
 const HomePage = React.lazy(() => import("./components/pages/HomePage/HomePage"));
 const IntroductionPage = React.lazy(() => import("./components/pages/IntroductionPage/IntroductionPage"));
@@ -26,9 +27,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Suspense>
-      <RouterProvider router={router} />
-    </Suspense>
+    <DefaultLayout>
+      <Suspense>
+        <RouterProvider router={router} />
+      </Suspense>
+    </DefaultLayout>
   );
 }
 
