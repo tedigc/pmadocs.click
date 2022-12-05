@@ -14,7 +14,7 @@ export default function OverviewPage() {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Link to="/">Home</Link>
+      <Link to="/">Back to home screen</Link>
     </Container>
   );
 }
