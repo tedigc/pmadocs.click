@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
-import ErrorPage from "./ErrorPage";
 import "./index.css";
-import IntroductionPage from "./Introduction";
-import OverviewPage from "./Overview";
+
+const App = React.lazy(() => import("./App"));
+const ErrorPage = React.lazy(() => import("./ErrorPage"));
+const IntroductionPage = React.lazy(() => import("./IntroductionPage"));
+const OverviewPage = React.lazy(() => import("./OverviewPage"));
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense>
+      <RouterProvider router={router} />
+    </Suspense>
   </React.StrictMode>
 );
