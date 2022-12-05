@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 
+import { Heading1 } from "../../atoms/Heading/Heading";
+import { Container } from "../../layout/Container/Container";
+
 export default function OverviewPage() {
   return (
-    <div>
-      <h1>Overview</h1>
+    <Container>
+      <Heading1>Overview</Heading1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -12,6 +15,6 @@ export default function OverviewPage() {
         laborum.
       </p>
       <Link to="/">Home</Link>
-    </div>
+    </Container>
   );
 }
