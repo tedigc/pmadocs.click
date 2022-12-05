@@ -1,36 +1,37 @@
-import { Link } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import React, { Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { DefaultLayout } from "./components/layout/DefaultLayout/DefaultLayout";
+
+const HomePage = React.lazy(() => import("./components/pages/HomePage/HomePage"));
+const IntroductionPage = React.lazy(() => import("./components/pages/IntroductionPage/IntroductionPage"));
+const OverviewPage = React.lazy(() => import("./components/pages/OverviewPage/OverviewPage"));
+const ErrorPage = React.lazy(() => import("./components/pages/ErrorPage/ErrorPage"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/introduction",
+    element: <IntroductionPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/overview",
+    element: <OverviewPage />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <ul>
-        <li>
-          <Link to="/introduction">Introduction</Link>
-        </li>
-        <li>
-          <Link to="/overview">Overview</Link>
-        </li>
-      </ul>
-    </div>
+    <DefaultLayout>
+      <Suspense>
+        <RouterProvider router={router} />
+      </Suspense>
+    </DefaultLayout>
   );
 }
 
